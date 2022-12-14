@@ -54,14 +54,10 @@ grype_repo: https://github.com/anchore/grype
 # Lookup table for architecture
 grype:
   architecture:
-    x86: 386
     x86_64: amd64
   system:
     Linux: linux
     Darwin: darwin
-
-# Should the cli be downloaded
-grype_download: true
 
 # Version of the CLI to install
 grype_version: latest
@@ -73,18 +69,6 @@ grype_group: root
 grype_mode: '0755'
 </pre></code>
 
-
-### vars/main.yml
-<pre><code>
-grype:
-  architecture:
-    x86: 386
-    x86_64: amd64
-  system:
-    Linux: linux
-    Darwin: MacOS
-    windows: windows
-</pre></code>
 
 
 
