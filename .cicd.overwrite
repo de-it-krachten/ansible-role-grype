@@ -1,0 +1,14 @@
+---
+
+# Generic
+generic:
+  role: ansible-role-grype
+  role_short: grype
+  role_description: |
+    Installs grype, a vulnerability scanner for container images and filesystems<br>
+    https://github.com/anchore/grype<br>
+  collections: []
+
+molecule:
+  requirements:
+    roles_extra: []

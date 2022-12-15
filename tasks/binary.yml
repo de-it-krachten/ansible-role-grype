@@ -1,0 +1,80 @@
+---
+
+- name: Lookup alternative system & architecture
+  ansible.builtin.set_fact:
+    grype_system: "{{ grype['system'][ansible_system] }}"
+    grype_architecture: "{{ grype['architecture'][ansible_architecture] | default(ansible_architecture) }}"
+
+- name: Get grype version installed
+  ansible.builtin.shell: |
+    set -o pipefail
+    grype version | awk '/^Version/ {print $NF}'
+  changed_when: no
+  failed_when: no
+  register: grype_version_installed
+
+- name: Set installed version as fact
+  ansible.builtin.set_fact:
+    grype_version_installed: "{{ 'N/A' if grype_version_installed.stdout | length == 0 else 'v' + grype_version_installed.stdout }}"
+
+- name: Get latest grype release info
+  ansible.builtin.uri:
+    url: "{{ grype_api + '/releases/latest' }}"
+  check_mode: no
+  register: grype_version_info
+
+- name: Get latest release tag
+  ansible.builtin.set_fact:
+    grype_version_latest: "{{ grype_version_info.json.tag_name }}"
+
+- name: Replace 'latest' by the actual version
+  ansible.builtin.set_fact:
+    grype_version: "{{ grype_version_latest }}"
+  when: grype_version == 'latest'
+
+- name: Get all grype releases info
+  ansible.builtin.uri:
+    url: "{{ grype_api + '/releases?per_page=1000' }}"
+  check_mode: no
+  register: grype_version_info
+
+- name: Get version information
+  ansible.builtin.set_fact:
+    grype_version_info: "{{ grype_version_info.json | json_query(query) | first }}"
+  vars:
+    query: "[?tag_name=='{{ grype_version }}']"
+
+- name: Construct filename based on the system & architecture
+  ansible.builtin.set_fact:
+    grype_file: "grype_{{ grype_version | regex_replace('^v') }}_{{ grype_system }}_{{ grype_architecture }}.tar.gz"
+
+- name: Show grype release
+  ansible.builtin.debug:
+    msg:
+      - "grype latest release    : {{ grype_version_latest }}"
+      - "grype requested release : {{ grype_version }}"
+      - "grype installed release : {{ grype_version_installed }}"
+
+- name: Install/update grype
+  when: grype_version != grype_version_installed
+  block:
+
+    - name: Get binary location
+      ansible.builtin.set_fact:
+        grype_url: "{{ grype_version_info.assets | json_query(query) | first }}"
+      vars:
+        query: "[?name=='{{ grype_file }}'].browser_download_url"
+
+    - name: Download & extract binaries
+      ansible.builtin.unarchive:
+        src: "{{ grype_url }}"
+        dest: /tmp
+        remote_src: yes
+
+    - name: Copy binary to {{ grype_path }}
+      ansible.builtin.copy:
+        src: /tmp/grype
+        dest: "{{ grype_path }}"
+        mode: "0555"
+        remote_src: true
+      delegate_to: "{{ inventory_hostname }}"

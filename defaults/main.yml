@@ -1,0 +1,24 @@
+---
+
+# Github CLI - API
+grype_api: https://api.github.com/repos/anchore/grype
+
+# Github CLI - repo
+grype_repo: https://github.com/anchore/grype
+
+# Lookup table for architecture
+grype:
+  architecture:
+    x86_64: amd64
+  system:
+    Linux: linux
+    Darwin: darwin
+
+# Version of the CLI to install
+grype_version: latest
+
+# Location/ownership/permissions of the binary
+grype_path: /usr/local/bin/grype
+grype_owner: root
+grype_group: root
+grype_mode: '0755'
