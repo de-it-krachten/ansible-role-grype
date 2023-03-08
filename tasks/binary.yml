@@ -8,7 +8,9 @@
 - name: Get grype version installed
   ansible.builtin.shell: |
     set -o pipefail
-    grype version | awk '/^Version/ {print $NF}'
+    {{ grype_path }} version | awk '/^Version:/ {print $NF}'
+  args:
+    executable: /bin/bash
   changed_when: no
   failed_when: no
   register: grype_version_installed
@@ -69,12 +71,12 @@
       ansible.builtin.unarchive:
         src: "{{ grype_url }}"
         dest: /tmp
-        remote_src: yes
+        remote_src: true
+      run_once: true
+      delegate_to: localhost
 
     - name: Copy binary to {{ grype_path }}
       ansible.builtin.copy:
         src: /tmp/grype
         dest: "{{ grype_path }}"
         mode: "0555"
-        remote_src: true
-      delegate_to: "{{ inventory_hostname }}"
