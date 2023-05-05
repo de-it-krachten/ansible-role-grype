@@ -72,11 +72,10 @@
         src: "{{ grype_url }}"
         dest: /tmp
         remote_src: true
-      run_once: true
-      delegate_to: localhost
 
     - name: Copy binary to {{ grype_path }}
       ansible.builtin.copy:
         src: /tmp/grype
         dest: "{{ grype_path }}"
         mode: "0555"
+        remote_src: true
