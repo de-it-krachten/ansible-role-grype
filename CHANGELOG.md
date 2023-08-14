@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/de-it-krachten/ansible-role-grype/compare/v1.0.1...v1.1.0) (2023-08-14)
+
+
+### Features
+
+* Update supported platforms & CI ([5040f45](https://github.com/de-it-krachten/ansible-role-grype/commit/5040f4585c43922e1ab0cd01014280c9a7f770a0))
+
 ## [1.0.1](https://github.com/de-it-krachten/ansible-role-grype/compare/v1.0.0...v1.0.1) (2023-05-06)
 
 
