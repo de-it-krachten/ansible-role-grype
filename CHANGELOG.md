@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/de-it-krachten/ansible-role-grype/compare/v1.1.0...v1.2.0) (2024-06-03)
+
+
+### Features
+
+* Add support for Ubuntu 24.04 LTS + Fedora 40 ([0552ea6](https://github.com/de-it-krachten/ansible-role-grype/commit/0552ea6096394653b5d1936ba344ac316a7a6918))
+
 # [1.1.0](https://github.com/de-it-krachten/ansible-role-grype/compare/v1.0.1...v1.1.0) (2023-08-14)
 
 
