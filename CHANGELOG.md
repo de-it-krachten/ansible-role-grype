@@ -1,3 +1,14 @@
+# [1.4.0](https://github.com/de-it-krachten/ansible-role-grype/compare/v1.3.0...v1.4.0) (2025-08-06)
+
+
+### Features
+
+* Add support for AlmaLinux 10 ([2f0cf2d](https://github.com/de-it-krachten/ansible-role-grype/commit/2f0cf2d2387601248a0b51f3e3c382cef856f841))
+* Add support for Debian 13 (Trixie) ([f9c97ef](https://github.com/de-it-krachten/ansible-role-grype/commit/f9c97efedcf7f4878d5aaba5046db0a9f993384a))
+* Add support for OracleLinux 10 ([10da6ff](https://github.com/de-it-krachten/ansible-role-grype/commit/10da6ff65a35ce0a50adaee4f388dd2dbfc7628b))
+* Add support for Red Hat Enterprise Linux 10 ([9f8dc35](https://github.com/de-it-krachten/ansible-role-grype/commit/9f8dc357d84fe8a0cf90e1639376fd282911343d))
+* Add support for RockyLinux 10 ([b102f3e](https://github.com/de-it-krachten/ansible-role-grype/commit/b102f3e2ba2d25edf900fca4ece59f93067b1ea2))
+
 # [1.3.0](https://github.com/de-it-krachten/ansible-role-grype/compare/v1.2.0...v1.3.0) (2024-12-29)
 
 
