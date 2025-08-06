@@ -42,9 +42,9 @@
 
 - name: Get version information
   ansible.builtin.set_fact:
-    grype_version_info: "{{ grype_version_info.json | json_query(query) | first }}"
+    grype_version_info: "{{ grype_version_info.json | json_query(qq) | first }}"
   vars:
-    query: "[?tag_name=='{{ grype_version }}']"
+    qq: "[?tag_name=='{{ grype_version }}']"
 
 - name: Construct filename based on the system & architecture
   ansible.builtin.set_fact:
@@ -63,9 +63,9 @@
 
     - name: Get binary location
       ansible.builtin.set_fact:
-        grype_url: "{{ grype_version_info.assets | json_query(query) | first }}"
+        grype_url: "{{ grype_version_info.assets | json_query(qq) | first }}"
       vars:
-        query: "[?name=='{{ grype_file }}'].browser_download_url"
+        qq: "[?name=='{{ grype_file }}'].browser_download_url"
 
     - name: Download & extract binaries
       ansible.builtin.unarchive:
