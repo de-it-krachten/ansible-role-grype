@@ -9,6 +9,12 @@ generic:
     https://github.com/anchore/grype<br>
   collections: []
 
+# Supported platforms
+platforms:
+  ubuntu2004:
+    supported: true
+    ci: true
+
 molecule:
   requirements:
     roles_extra: []
