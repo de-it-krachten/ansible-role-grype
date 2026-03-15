@@ -1,3 +1,13 @@
+# [1.5.0](https://github.com/de-it-krachten/ansible-role-grype/compare/v1.4.0...v1.5.0) (2026-03-15)
+
+
+### Features
+
+* Added support for Fedora 43 ([20d7376](https://github.com/de-it-krachten/ansible-role-grype/commit/20d7376da44ee2d80cff5d796abb7ab3371bd7da))
+* Drop support for Fedora 41 ([ab047cf](https://github.com/de-it-krachten/ansible-role-grype/commit/ab047cf5641dd69404e13bb62db24a29ed521069))
+* Drop support for openSUSE Leap 15 ([7776dcc](https://github.com/de-it-krachten/ansible-role-grype/commit/7776dcc06fddf8502b1a70c334450dd0dcaf33af))
+* Drop support for SUSE Linux Enterprise 15 ([dd925b2](https://github.com/de-it-krachten/ansible-role-grype/commit/dd925b24ccb213d116bbb441a6a1830154003829))
+
 # [1.4.0](https://github.com/de-it-krachten/ansible-role-grype/compare/v1.3.0...v1.4.0) (2025-08-06)
 
 
