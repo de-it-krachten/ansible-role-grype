@@ -1,3 +1,13 @@
+# [1.6.0](https://github.com/de-it-krachten/ansible-role-grype/compare/v1.5.0...v1.6.0) (2026-07-26)
+
+
+### Features
+
+* Add support for ansible-core 2.20+ ([e2024f9](https://github.com/de-it-krachten/ansible-role-grype/commit/e2024f999818884397c126028a9267b233eeaa79))
+* Added support for Fedora 44 ([794ab3f](https://github.com/de-it-krachten/ansible-role-grype/commit/794ab3f0f1ff3cf05019439b91f591fd4c0c9cd9))
+* Added support for Ubuntu 26.04 LTS ([8f4ca14](https://github.com/de-it-krachten/ansible-role-grype/commit/8f4ca14c0d4642ccc0acc957f3ada10448d56fab))
+* Drop support for Fedora 42 ([0f24299](https://github.com/de-it-krachten/ansible-role-grype/commit/0f242998aec2b163d1398d5af86fac8377c5178b))
+
 # [1.5.0](https://github.com/de-it-krachten/ansible-role-grype/compare/v1.4.0...v1.5.0) (2026-03-15)
 
 
