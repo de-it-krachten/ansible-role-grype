@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/de-it-krachten/ansible-role-grype/compare/v1.6.0...v1.7.0) (2026-11-07)
+
+
+### Features
+
+* Drop support for Debian 11 (Bullseye) ([7b74089](https://github.com/de-it-krachten/ansible-role-grype/commit/7b7408986263dbcef6848331acd64bbad3b8672a))
+
 # [1.6.0](https://github.com/de-it-krachten/ansible-role-grype/compare/v1.5.0...v1.6.0) (2026-07-26)
 
 
